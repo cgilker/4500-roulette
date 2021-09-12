@@ -1,0 +1,34 @@
+4500 roulette project
+The big idea of HW2 is to use a pseudo-random number generator to implement a roulette wheel “game.” At the start of an execution, your program should ask the interactive user (via the screen) for four inputs (via the keyboard):
+
+How many slots there will be in your roulette wheel; this must be an integer between 2 and 200, inclusive
+How many of the slots will be labeled with 0 or 00; this must be an integer between 0 and 2, inclusive
+How many times do you want to visit the casino, an integer between 1 and 100,000, inclusive; I will call that number N in the rest of this specification.
+How many dollars you want to start with each time you simulate a visit to the casino; this must be an integer between 1 and 1,000,000, inclusive.
+Finally, your program will give the interactive user a choice between two betting strategies:
+
+The Martingale strategy, described in the video linked above: you will start by betting $1. If you win your bet, you quit and go home happy. (Not that happy, for reasons that will be obvious after you watch the video.) If you lose, you double the bet and go again. You continue that process until you either run out of money (and your visit is over), or you win, and you voluntarily quit, slightly ahead.
+A random strategy: each time you bet, you bet a random amount from $1 to all the money you have left. Each time you bet, each of the possible bets should be equally likely when you pick the amount to bet. You finish with this strategy when you either run out of money, or you have bet 50 times, whichever comes first.
+A fixed bet strategy: each time you bet, you bet a fixed amount, from $1 to the amount of money you start with. If the user picks this strategy, you have to also get that fixed amount from the user. You finish with this strategy when you either run out of money (that is, your money dips below the fixed bet size), or you have bet 50 times.
+Every time you ask the user for information, give the user all the necessary information about what is a legal input. Then check to make sure the information entered is appropriate. If an input that is entered is not legal, then give a descriptive error message, and reprompt.
+
+Now your program should be ready to run some simulated roulette games. Each time the wheel “spins,” you place a bet using the information entered by the user. Each time, the user bets on black (just like in the video).
+
+Be careful how you implement the spin: Any zero spots (remember, you can have 0, 1, or 2 of these) are neither black or red. This is NOT how a real roulette wheel is laid out, but just to simplify matters, make any even numbers on the wheel black, and any odd numbers on the wheel red. If the spin comes up black, you get your bet back plus the same amount (to add to your “wallet”). If the spin does not come up black, you lose your money.
+
+Each time your program is run, you are to simulate N “visits to the casino.” (In case you forgot, N is defined above.) Each time you simulate a visit, you spin the wheel repeatedly until you reach the end of that visit according to the strategy chosen. (Remember, for Martingale you either win or run out of money; for random and for fixed, you either bet 50 times or run out of money.)
+
+After the N visits to the casino, your program should print out the following information for the interactive user:
+
+All the values the user entered at the start, appropriately labeled
+The total number of dollars the user put at risk (N times the dollars at the start of each visit)
+The total number of dollars the user walked away with, total, for the N visits. Give this as an absolute value and as a percentage of the total number of dollars put at risk.
+The most dollars the user won (biggest positive gain) among the N visits. (It may be that the user never walked away a winner; if so, your program should tell the user this.) It is OK if this number is not unique – you might have won exactly that same amount more than once. If the user picked the Martingale strategy, the only thing you can win is $1 per visit, at most.
+The number of times the user finished with no money at all. (It may be that this never happened; if so, the program should tell the user this.)
+The average change in the user’s money over the N visits. This may be positive or negative.
+Among the N visits, how many times a visit finished with more money than when the user started (the user was a winner), and how many times a visit finished with less money than when the user started (the user was a loser), and how many times the user finished with exactly the same amount of money (the user breaks even).
+After your program lists all this information, it should pause (to display the information) until the user pushes ENTER.
+
+All the documentation tips from HW1 apply to HW2. In addition, make sure that all the members of your team are mentioned right away in the opening comment. If you use any outside resources to complete this program (for example, researching how to throw a random number in the programming language you use), list those resources in your opening comment. (Always give credit where credit is due.)
+
+Do NOT get someone outside your group to write any of this code; that is strictly forbidden.
